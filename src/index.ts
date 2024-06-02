@@ -11,7 +11,7 @@ import mergeSort from "./sort-algorithm/merge";
 import countSort from "./sort-algorithm/count";
 import binSort from "./sort-algorithm/bin";
 
-const temperatures: number[] = [];
+const rawTemperatures: number[] = [];
 
 for (let year = 2004; year <= 2023; year++) {
   const data = fs.readFileSync(`data/${year}.csv`, "utf-8");
@@ -19,12 +19,16 @@ for (let year = 2004; year <= 2023; year++) {
   const filteredData = lines.slice(5).join("\n");
   const records = parse(filteredData) as string[][];
   for (const record of records) {
-    temperatures.push(Number(record[1]));
+    rawTemperatures.push(Number(record[1]));
   }
 }
-console.log(temperatures.length);
+console.log(rawTemperatures.length);
+
+const rawTemperatures10 = rawTemperatures.map((t) => t * 10);
 
 for (let i = 0; i < 10; i++) {
+  const temperatures = i <= 7 ? [...rawTemperatures] : [...rawTemperatures10];
+
   const startTime = Date.now();
 
   switch (i) {
