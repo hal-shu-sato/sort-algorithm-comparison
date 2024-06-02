@@ -33,7 +33,7 @@ for (let i = 0; i < 10; i++) {
 
   switch (i) {
     case 0:
-      console.log("SimpleSort");
+      console.log("simpleSort");
       simpleSort(temperatures, temperatures.length);
       break;
     case 1:
