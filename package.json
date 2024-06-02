@@ -40,5 +40,8 @@
       "prettier --write"
     ],
     "**/*": "prettier --write --ignore-unknown"
+  },
+  "dependencies": {
+    "csv-parse": "^5.5.6"
   }
 }
